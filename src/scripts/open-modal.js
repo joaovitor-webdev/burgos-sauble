@@ -166,7 +166,7 @@ cheeckoutBtn.addEventListener('click', function () {
 
     const isOpen = checkOpen()
 
-    if (isOpen) {
+    if (!isOpen) {
         Toastify({
             text: "Restaurante fechado!",
             duration: 3000,
