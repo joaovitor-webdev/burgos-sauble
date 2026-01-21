@@ -166,7 +166,7 @@ cheeckoutBtn.addEventListener('click', function () {
 
     const isOpen = checkOpen()
 
-    if (!isOpen) {
+    if (isOpen) {
         Toastify({
             text: "Restaurante fechado!",
             duration: 3000,
@@ -207,7 +207,13 @@ cheeckoutBtn.addEventListener('click', function () {
 function checkOpen() {
     const data = new Date()
     const hora = data.getHours();
-    return hora > 18 && hora < 22
+    const minutos = data.getMinutes();
+    const totalMinutos = hora * 60 + minutos;
+    const abertura = 18 * 60;
+    const fechamento = 22 * 60 + 30;
+    console.log(totalMinutos >= abertura && totalMinutos < fechamento)
+    console.log(totalMinutos)
+    return totalMinutos >= abertura && totalMinutos < fechamento
 }
 
 const spanItem = document.getElementById('date-span')
