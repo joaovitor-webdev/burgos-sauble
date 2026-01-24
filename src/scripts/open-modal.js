@@ -8,6 +8,7 @@ const closeModalBtn = document.getElementById('close-modal-btn')
 const cartCounter = document.getElementById('cart-count')
 const addressInput = document.getElementById('address')
 const addressWarn = document.getElementById('address-warn')
+const addToCartBtn = document.querySelectorAll('button.add-to-cart-btn')
 
 let cart = []
 
@@ -26,14 +27,12 @@ closeModalBtn.addEventListener('click', function () {
     cartModal.style.display = 'none'
 })
 
-menu.addEventListener('click', function (event) {
-    let parentButton = event.target.closest('.add-to-cart-btn')
-
-    if (parentButton) {
-        const name = parentButton.getAttribute('data-name')
-        const price = parseFloat(parentButton.getAttribute('data-price'))
+addToCartBtn.forEach(btn => {
+    btn.addEventListener('click', function () {
+        const name = btn.getAttribute('data-name')
+        const price = parseFloat(btn.getAttribute('data-price'))
         addToCart(name, price)
-    }
+    })
 })
 
 function addToCart(name, price) {
@@ -54,9 +53,9 @@ function addToCart(name, price) {
         text: "Item adicionado ao carrinho!",
         duration: 3000,
         close: true,
-        gravity: "top", 
-        position: "right", 
-        stopOnFocus: true, 
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
         style: {
             background: "#33363D",
             color: "#15B629",
@@ -138,7 +137,7 @@ function removeItemCart(name) {
                 text: "Item removido do carrinho!",
                 duration: 3000,
                 close: true,
-                gravity: "top", 
+                gravity: "top",
                 position: "right",
                 stopOnFocus: true,
                 style: {
@@ -171,9 +170,9 @@ cheeckoutBtn.addEventListener('click', function () {
             text: "Restaurante fechado!",
             duration: 3000,
             close: true,
-            gravity: "top", // `top` or `bottom`
-            position: "right", // `left`, `center` or `right`
-            stopOnFocus: true, // Prevents dismissing of toast on hover
+            gravity: "top",
+            position: "right", 
+            stopOnFocus: true,
             style: {
                 background: "#ef4444",
             },
@@ -207,13 +206,7 @@ cheeckoutBtn.addEventListener('click', function () {
 function checkOpen() {
     const data = new Date()
     const hora = data.getHours();
-    const minutos = data.getMinutes();
-    const totalMinutos = hora * 60 + minutos;
-    const abertura = 18 * 60;
-    const fechamento = 22 * 60 + 30;
-    console.log(totalMinutos >= abertura && totalMinutos < fechamento)
-    console.log(totalMinutos)
-    return totalMinutos >= abertura && totalMinutos < fechamento
+    return hora >= 18 && hora < 23
 }
 
 const spanItem = document.getElementById('date-span')

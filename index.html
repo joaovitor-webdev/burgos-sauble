@@ -3,6 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Hamburgueria Burgo's Sauble">
+        <meta property="og:image"
+            content="https://burgos-sauble.netlify.app/src/assets/hamb-1.png">
+        <meta property="og:description"
+            content="Confira nosso cardápio online e faça seu pedido!">
+        <meta property="og:site_name" content="Burgo's Sauble">
+
         <link rel="stylesheet" href="./src/styles/output.css">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -13,249 +21,607 @@
         <link
             href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
             rel="stylesheet" />
-
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="Hamburgueria Burgo's Sauble">
-        <meta property="og:image" content="https://burgos-sauble.netlify.app/src/assets/hamb-1.png">
-        <meta property="og:description" content="Confira nosso cardápio online e faça seu pedido!">
-        <meta property="og:site_name" content="Burgo's Sauble">
-
-        <link rel="shortcut icon" href="./src/assets/hamb-1.png" type="image/x-icon">
+        <link rel="shortcut icon" href="./src/assets/hamb-1.png"
+            type="image/x-icon">
 
         <title>Burgo's Sauble</title>
     </head>
+
     <body>
-
         <header class="w-full h-[420px] bg-zinc-900 bg-home bg-cover bg-center">
-
             <div
                 class="w-full h-full flex flex-col justify-center items-center">
                 <img src="./src/assets/hamb-1.png"
                     alt="Logo hamburgueria"
                     class="w-32 h-32 rounded-full shadow-lg hover:scale-110 duration-200">
+
                 <h1 class="text-4xl mt-4 mb-2 font-bold text-white text-center">
                     Burgo's Sauble
                 </h1>
 
                 <span class="text-white font-medium text-center">
-                    Rua Maria do Carmo P. Campos Nº 7, Ferreiros - PE
+                    Rua do Farfúlio Nº 45, Ferreiros - PE
                 </span>
 
                 <div class="bg-green-600 px-4 py-1 rounded-lg mt-5"
                     id="date-span">
                     <span class="text-white font-medium">
-                        Seg à Dom - 18h às 22h30
+                        Seg à Dom - 18h às 23h
                     </span>
                 </div>
-
             </div>
-
         </header>
 
-        <h2 class="text-2xl md:text-3xl font-bold text-center mt-9 mb-6">
-            Conheça nosso menu
-        </h2>
+        <main>
+            <h2 id="nav" class="text-2xl md:text-3xl font-bold text-center m-6">
+                Conheça nosso menu
+            </h2>
 
-        <div id="menu">
+            <nav 
+                class="flex items-center justify-center py-6 sticky top-0 z-30">
+                <div
+                    class="flex gap-1 bg-gray-300 rounded-full p-1.5 w-[70%] max-w-2xl shadow-inner">
+                    <button
+                        id="burguer_menu_btn"
+                        class="flex-1 bg-white text-black shadow-xl py-2.5 rounded-full font-bold text-sm w-[50%]">
+                        Burguers
+                    </button>
 
-            <main
-                class="grid grid-cols-1 md:grid-cols-2 gap-7 mx-10 max-w-7xl mb-16">
+                    <button
+                        id="drink_menu_btn"
+                        class="flex-1 text-gray-500 py-2.5 rounded-full font-bold text-sm w-[50%]">
+                        Bebidas
+                    </button>
+                </div>
+            </nav>
 
-                <div class="flex gap-2">
-                    <img src="./src/assets/hamb-1.png"
-                        alt="Hamburguer Smash"
-                        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
-
-                    <div>
-                        <p class="font-bold">
-                            Hamburguer Smash
+            <div id="menu_burguer"
+                class="grid grid-cols-1 md:grid-cols-2 xl::grid-cols-3 gap-4 mx-5 max-w-7xl mb-16">
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div
+                        class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/hamb-1.png"
+                            alt="Classic Smash"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full">
+                        <p
+                            class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Classic Smash
                         </p>
-                        <p class="text-sm">
-                            Pão levinho de fermentação natural da Trigou, burger
-                            160g, queijo prato e maionaese da casa.
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            O queridinho da casa! Pão brioche de fermentação
+                            natural, burger smash (160g), queijo prato derretido
+                            e nossa maionese artesanal secreta.
                         </p>
 
                         <div
                             class="flex items-center gap-2 justify-between mt-3">
-                            <p class="font-bold text-lg">
+                            <p class="font-bold text-[18px] text-gray-950">
+                                R$ 19,90
+                            </p>
+
+                            <button
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Classic Smash"
+                                data-price="19.90">
+                                <i
+                                    class="fa fa-plus text-sm text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div
+                        class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/hamb-2.png"
+                            alt="Bacon Double Hit"
+                            class="w-full h-full object-cover">
+                    </div>
+
+                    <div class="w-full">
+                        <p
+                            class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Bacon Double Hit
+                        </p>
+
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            Para quem tem fome de verdade. Dois burgers de 160g,
+                            fatias crocantes de bacon premium, queijo prato e
+                            maionese da casa no pão de fermentação natural.
+                        </p>
+
+                        <div
+                            class="flex items-center gap-2 justify-between mt-3">
+                            <p class="font-bold text-[18px] text-gray-950">
+                                R$ 29,90
+                            </p>
+
+                            <button
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Bacon Double Hit"
+                                data-price="29.90">
+                                <i
+                                    class="fa fa-plus text-sm text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div
+                        class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/hamb-3.png"
+                            alt="Cheddar Melt Duplo"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full">
+                        <p
+                            class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Cheddar Melt Duplo
+                        </p>
+
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            Explosão de sabor com dois burgers (160g cada),
+                            camada generosa de cheddar cremoso e cream-chease no
+                            pão macio de fermentação natural.
+                        </p>
+
+                        <div
+                            class="flex items-center gap-2 justify-between mt-3">
+                            <p class="font-bold text-[18px] text-gray-950">
+                                R$ 29,90
+                            </p>
+                            <button
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Cheddar Melt Duplo"
+                                data-price="29.90">
+                                <i
+                                    class="fa fa-plus text-sm text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div
+                        class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/hamb-4.png"
+                            alt="Chicken Crispy"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full">
+                        <p
+                            class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Chicken Crispy
+                        </p>
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            Peito de frango empanado super crocante, alface
+                            americana fresca, tomate e maionese de ervas no pão
+                            com gergelim de fermentação natural.
+                        </p>
+
+                        <div
+                            class="flex items-center gap-2 justify-between mt-3">
+                            <p class="font-bold text-[18px] text-gray-950">
                                 R$ 19,90
                             </p>
                             <button
-                                class="bg-gray-900 px-4 rounded add-to-cart-btn"
-                                data-name="Hamburguer Smash"
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Chicken Crispy"
                                 data-price="19.90">
                                 <i
-                                    class="fa fa-cart-plus text-sm text-white"></i>
+                                    class="fa fa-plus text-sm text-white"></i>
                             </button>
                         </div>
                     </div>
-
                 </div>
 
-                <div class="flex gap-2">
-                    <img src="./src/assets/hamb-2.png"
-                        alt="Hamburguer Duplo"
-                        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
-
-                    <div>
-                        <p class="font-bold">
-                            Hamburguer Duplo
-                        </p>
-                        <p class="text-sm">
-                            Pão levinho de fermentação natural da Trigou, 2
-                            burgers
-                            320g, queijo prato e maionaese da casa.
-                        </p>
-
-                        <div
-                            class="flex items-center gap-2 justify-between mt-3">
-                            <p class="font-bold text-lg">
-                                R$ 32,90
-                            </p>
-                            <button
-                                class="bg-gray-900 px-4 rounded add-to-cart-btn"
-                                data-name="Hamburguer Duplo"
-                                data-price="32.90">
-                                <i
-                                    class="fa fa-cart-plus text-sm text-white"></i>
-                            </button>
-                        </div>
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div
+                        class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/hamb-5.png"
+                            alt="Sauble Salad"
+                            class="w-full h-full object-cover">
                     </div>
-
-                </div>
-
-                <div class="flex gap-2">
-                    <img src="./src/assets/hamb-3.png"
-                        alt="Hamburguer Cheddar"
-                        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
-
-                    <div>
-                        <p class="font-bold">
-                            Hamburguer Cheddar
-                        </p>
-                        <p class="text-sm">
-                            Pão levinho de fermentação natural da Trigou, 2
-                            burgers
-                            320g, queijo prato e maionaese da casa.
-                        </p>
-
-                        <div
-                            class="flex items-center gap-2 justify-between mt-3">
-                            <p class="font-bold text-lg">
-                                R$ 35,90
-                            </p>
-                            <button
-                                class="bg-gray-900 px-4 rounded add-to-cart-btn"
-                                data-name="Hamburguer Cheddar"
-                                data-price="35.90">
-                                <i
-                                    class="fa fa-cart-plus text-sm text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="flex gap-2">
-                    <img src="./src/assets/hamb-4.png"
-                        alt="Hamburguer Salad"
-                        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
-
-                    <div>
-                        <p class="font-bold">
-                            Hamburguer Salad
-                        </p>
-                        <p class="text-sm">
-                            Pão levinho de fermentação natural da Trigou, 2
-                            burgers
-                            320g, queijo prato e maionaese da casa.
-                        </p>
-
-                        <div
-                            class="flex items-center gap-2 justify-between mt-3">
-                            <p class="font-bold text-lg">
-                                R$ 25,90
-                            </p>
-                            <button
-                                class="bg-gray-900 px-4 rounded add-to-cart-btn"
-                                data-name="Hamburguer Salad"
-                                data-price="25.90">
-                                <i
-                                    class="fa fa-cart-plus text-sm text-white"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-
-            </main>
-
-            <div class="mx-auto max-w-7xl px-2 my-2">
-                <h2
-                    class="text-2xl md:text-3xl font-bold text-center mt-9 mb-6">
-                    Bebidas
-                </h2>
-            </div>
-
-            <div
-                class="grid grid-cols-1 md:grid-cols-2 gap-7 mx-10 max-w-7xl mb-16"
-                id="menu">
-
-                <div class="flex gap-2 w-full">
-                    <img src="./src/assets/refri-1.png"
-                        alt="Coca-cola Lata"
-                        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
-
                     <div class="w-full">
-                        <p class="font-bold">
-                            Coca-cola Lata
+                        <p
+                            class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Sauble's Salad
+                        </p>
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            Equilíbrio perfeito: burger 160g, queijo prato,
+                            alface, tomate, cebola roxa e picles artesanal no
+                            pão de fermentação natural.
+                        </p>
+
+                        <div
+                            class="flex items-center gap-2 justify-between mt-3">
+                            <p class="font-bold text-[18px] text-gray-950">
+                                R$ 19,90
+                            </p>
+                            <button
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Sauble's Salad"
+                                data-price="19.90">
+                                <i
+                                    class="fa fa-plus text-sm text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div
+                        class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/hamb-6.png"
+                            alt="Rustic Burger"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full">
+                        <p
+                            class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Rustic Burger
+                        </p>
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            Acompanha fritas! Burger 160g grelhado no fogo,
+                            queijo prato e maionese defumada no pão de
+                            fermentação natural.
+                        </p>
+
+                        <div
+                            class="flex items-center gap-2 justify-between mt-3">
+                            <p class="font-bold text-[18px] text-gray-950">
+                                R$ 24,90
+                            </p>
+                            <button
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Rustic Burger"
+                                data-price="24.90">
+                                <i
+                                    class="fa fa-plus text-sm text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div
+                        class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/hamb-7.png"
+                            alt="Onion Ring Tower"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full">
+                        <p
+                            class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Onion Ring Tower
+                        </p>
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            Burger 160g, queijo prato, maionese da casa e o
+                            toque especial de anéis de cebola crocantes dentro
+                            do pão de fermentação natural.
+                        </p>
+
+                        <div
+                            class="flex items-center gap-2 justify-between mt-3">
+                            <p class="font-bold text-[18px] text-gray-950">
+                                R$ 19,90
+                            </p>
+                            <button
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Onion Ring Tower"
+                                data-price="19.90">
+                                <i
+                                    class="fa fa-plus text-sm text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div
+                        class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/hamb-8.png"
+                            alt="Veggie Fresh"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full">
+                        <p
+                            class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Veggie Fresh
+                        </p>
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            Opção leve e colorida com mix de folhas, pimentões
+                            levemente grelhados, queijo prato e maionese no pão
+                            de fermentação natural.
+                        </p>
+
+                        <div
+                            class="flex items-center gap-2 justify-between mt-3">
+                            <p class="font-bold text-[18px] text-gray-950">
+                                R$ 19,90
+                            </p>
+                            <button
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Veggie Fresh"
+                                data-price="19.90">
+                                <i
+                                    class="fa fa-plus text-sm text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="grid-cols-1 md:grid-cols-2 gap-4 mx-5 max-w-7xl mb-16 hidden"
+                id="menu_drink">
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/refri-1.png"
+                            alt="Coca-Cola Original (Lata)"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full">
+                        <p class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Coca-Cola Original (Lata)
+                        </p>
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            Refrescância clássica 350ml, entregue bem gelada.
                         </p>
                         <div
                             class="flex items-center gap-2 justify-between mt-3">
-                            <p class="font-bold text-lg">
+                            <p class="font-bold text-[18px] text-gray-950">
                                 R$ 5,90
                             </p>
                             <button
-                                class="bg-gray-900 px-4 rounded add-to-cart-btn"
-                                data-name="Coca-cola Lata"
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Coca-Cola Original (Lata)"
                                 data-price="5.90">
                                 <i
-                                    class="fa fa-cart-plus text-sm text-white"></i>
+                                    class="fa fa-plus text-sm text-white"></i>
                             </button>
                         </div>
                     </div>
-
                 </div>
 
-                <div class="flex gap-2 w-full">
-                    <img src="./src/assets/refri-2.png"
-                        alt="Guaraná Lata"
-                        class="w-28 h-28 rounded-md hover:scale-110 hover:-rotate-2 duration-300">
-
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/refri-2.png"
+                            alt="Guaraná Antarctica (Lata)"
+                            class="w-full h-full object-cover">
+                    </div>
                     <div class="w-full">
-                        <p class="font-bold">
-                            Guaraná Lata
+                        <p class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Guaraná Antarctica (Lata)
+                        </p>
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            O sabor original do Brasil em lata de 350ml.
                         </p>
                         <div
                             class="flex items-center gap-2 justify-between mt-3">
-                            <p class="font-bold text-lg">
+                            <p class="font-bold text-[18px] text-gray-950">
                                 R$ 4,90
                             </p>
                             <button
-                                class="bg-gray-900 px-4 rounded add-to-cart-btn"
-                                data-name="Guarana Lata"
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Guaraná Antarctica (Lata)"
                                 data-price="4.90">
                                 <i
-                                    class="fa fa-cart-plus text-sm text-white"></i>
+                                    class="fa fa-plus text-sm text-white"></i>
                             </button>
                         </div>
                     </div>
+                </div>
 
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/refri-3.png"
+                            alt="Coca-Cola 600ml"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full">
+                        <p class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Coca-Cola 600ml
+                        </p>
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            O tamanho ideal para quem quer um pouco mais de sabor.
+                        </p>
+                        <div
+                            class="flex items-center gap-2 justify-between mt-3">
+                            <p class="font-bold text-[18px] text-gray-950">
+                                R$ 8,50
+                            </p>
+                            <button
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Coca-Cola 600ml"
+                                data-price="8.50">
+                                <i
+                                    class="fa fa-plus text-sm text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/refri-4.png"
+                            alt="Suco de Uva Integral (Garrafa)"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full">
+                        <p class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Suco de Uva Integral (Garrafa)
+                        </p>
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            Suco 100% fruta (250ml), sem adição de açúcar ou conservantes.
+                        </p>
+                        <div
+                            class="flex items-center gap-2 justify-between mt-3">
+                            <p class="font-bold text-[18px] text-gray-950">
+                                R$ 9,90
+                            </p>
+                            <button
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Suco de Uva Integral (Garrafa)"
+                                data-price="9.90">
+                                <i
+                                    class="fa fa-plus text-sm text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/refri-5.png"
+                            alt="Matte Leão com Limão"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full">
+                        <p class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Matte Leão com Limão
+                        </p>
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            Chá gelado natural e refrescante (copo ou garrafa 300ml).
+                        </p>
+                        <div
+                            class="flex items-center gap-2 justify-between mt-3">
+                            <p class="font-bold text-[18px] text-gray-950">
+                                R$ 6,50
+                            </p>
+                            <button
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Matte Leão com Limão"
+                                data-price="6.50">
+                                <i
+                                    class="fa fa-plus text-sm text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/refri-6.png"
+                            alt="Água Mineral com Gás"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full">
+                        <p class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Água Mineral com Gás
+                        </p>
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            Garrafa 500ml. Perfeita para limpar o paladar entre as mordidas.
+                        </p>
+                        <div
+                            class="flex items-center gap-2 justify-between mt-3">
+                            <p class="font-bold text-[18px] text-gray-950">
+                                R$ 4,50
+                            </p>
+                            <button
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Água Mineral com Gás"
+                                data-price="6.50">
+                                <i
+                                    class="fa fa-plus text-sm text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/refri-7.png"
+                            alt="Heineken Long Neck"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full">
+                        <p class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Heineken Long Neck
+                        </p>
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            Cerveja Premium Lager 330ml (Venda proibida para menores).
+                        </p>
+                        <div
+                            class="flex items-center gap-2 justify-between mt-3">
+                            <p class="font-bold text-[18px] text-gray-950">
+                                R$ 11,00
+                            </p>
+                            <button
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Heineken Long Neck"
+                                data-price="11.00">
+                                <i
+                                    class="fa fa-plus text-sm text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="flex gap-2 shadow-floating p-3 rounded-xl bg-gray-100 hover:scale-[1.05] hover:shadow-xl duration-200">
+                    <div class="flex-shrink-0 w-[110px] h-[110px] rounded-lg overflow-hidden bg-gray-100">
+                        <img src="./src/assets/refri-8.png  "
+                            alt="Coca-Cola Família (1,5L)"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="w-full">
+                        <p class="font-bold text-[16px] text-gray-950 leading-tight mb-1">
+                            Coca-Cola Família (1,5L)
+                        </p>
+                        <p
+                            class="text-[13px] text-gray-700 leading-[1.4] line-clamp-3">
+                            Ideal para dividir com a galera ou acompanhar o combo família.
+                        <div
+                            class="flex items-center gap-2 justify-between mt-3">
+                            <p class="font-bold text-[18px] text-gray-950">
+                                R$ 13,90
+                            </p>
+                            <button
+                                class="bg-gray-900 w-9 h-9 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors shadow-md add-to-cart-btn"
+                                data-name="Coca-Cola Família (1,5L)"
+                                data-price="13.90">
+                                <i
+                                    class="fa fa-plus text-sm text-white"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
             </div>
-
-        </div>
+        </main>
 
         <div
             class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden"
@@ -309,17 +675,24 @@
         </div>
 
         <footer
-            class="w-full bg-red-500 py-3 fixed bottom-0 z-40 flex items-center justify-center">
-            <button class="flex items-center gap-2 text-white font-bold"
-                id="cart-btn">
-                (<span id="cart-count">0</span>)
-                Veja seu carrinho
-                <i class="fa fa-cart-plus text-lg text-white"></i>
-            </button>
+            class=" flex items-center justify-center sticky bottom-0">
+            <div
+                class="bg-red-500 shadow-lg rounded-full w-[90%] mb-3 p-2.5 flex items-center justify-center">
+                <button
+                    class="flex items-center justify-center gap-1 text-white font-bold w-full"
+                    id="cart-btn">
+
+                    (<span id="cart-count">0</span>)
+                    Veja seu carrinho
+
+                    <i class="fa fa-cart-plus text-lg text-white"></i>
+                </button>
+            </div>
         </footer>
 
         <script type="text/javascript"
             src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script src="./src/scripts/show-menus.js"></script>
         <script src="./src/scripts/open-modal.js"></script>
 
     </body>
