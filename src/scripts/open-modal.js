@@ -224,7 +224,23 @@ addressInput.addEventListener('input', function (event) {
 })
 
 continueBtn.addEventListener('click', function () {
-    if (cart.length === 0) {
+
+    const isOpen = checkOpen()
+
+    if (!isOpen) {
+        Toastify({
+            text: "Restaurante fechado!",
+            duration: 3000,
+            close: true,
+            gravity: "top",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+                background: "#ef4444",
+            },
+        }).showToast();
+        return
+    } else if (cart.length === 0) {
         Toastify({
             text: "Carrinho vazio!",
             duration: 3000,
@@ -249,22 +265,7 @@ continueBtn.addEventListener('click', function () {
 
 checkoutBtn.addEventListener('click', function () {
 
-    const isOpen = checkOpen()
-
-    if (!isOpen) {
-        Toastify({
-            text: "Restaurante fechado!",
-            duration: 3000,
-            close: true,
-            gravity: "top",
-            position: "right",
-            stopOnFocus: true,
-            style: {
-                background: "#ef4444",
-            },
-        }).showToast();
-        return
-    } else if (clientInput.value === "") {
+    if (clientInput.value === "") {
         clientWarn.classList.remove('hidden')
         clientInput.classList.add('border-red-500')
         return
@@ -310,8 +311,8 @@ checkoutBtn.addEventListener('click', function () {
 function checkOpen() {
     const data = new Date()
     const hora = data.getHours();
-    return hora < 23
-    // hora >= 18 && 
+    return hora >= 18 && hora < 23
+    
 }
 
 const spanItem = document.getElementById('date-span')
