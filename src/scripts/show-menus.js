@@ -9,6 +9,7 @@ burguerMenuBtn.addEventListener('click', function () {
     drinkMenuBtn.classList.remove('bg-white', 'text-black', 'shadow-xl')
     drinkMenuBtn.classList.add('text-gray-500')
     showMenuBurguer()
+    window.scrollTo(0, 0)
 })
 
 function showMenuBurguer() {
@@ -24,6 +25,7 @@ drinkMenuBtn.addEventListener('click', function () {
     burguerMenuBtn.classList.remove('bg-white', 'text-black', 'shadow-xl')
     burguerMenuBtn.classList.add('text-gray-500')
     showMenuDrink()
+    window.scrollTo(0, 0)
 })
 
 function showMenuDrink() {

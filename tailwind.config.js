@@ -11,7 +11,6 @@ module.exports = {
         extend: {
             backgroundImage: {
                 "home": "url('../assets/bg.png')",
-                "fundo": "url('https://img.freepik.com/fotos-gratis/fundo-de-piso-de-madeira-marrom-com-textura_53876-129599.jpg')"
             },
             boxShadow: {
                 'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
