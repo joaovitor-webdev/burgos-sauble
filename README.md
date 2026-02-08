@@ -1,4 +1,4 @@
-# Color Palette Generator
+# Burgo's Sauble - Cardápio Online para Delivery
 
 Cardápio online para hamburguerias e restaurantes delivery, para gerenciamento de pedidos pelo WhatsApp.
 
