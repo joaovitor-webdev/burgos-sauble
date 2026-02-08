@@ -8,7 +8,7 @@ Aplicação web estática construída com HTML e Tailwind CSS, com pequenos scri
 
 ### Imagens do projeto:
 
-![Screenshot](./src\assets\screenshot.png)
+![Screenshot](./src/assets/screenshot.png)
 
 ### Demo
 
